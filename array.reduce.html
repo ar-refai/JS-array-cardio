@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS array reduce() cardio</title>
+    <style>
+        body {
+            background-color: #000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow: 2px 2px 12px #fc3, 1px 1px 6px #fc3;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+
+
+
+<body>
+    <script>
+        const demo = document.querySelectorAll('.demo');
+        //                          (1)
+        /////////////////////////////////////////////////////////////////
+        function getSum(arr) {
+            let result = arr.reduce(function (total, currVal) {
+                return total + currVal;
+            }, 0);
+            return result;
+        }
+        //                          (2)
+        // write a function to sum an array elements by reduce()
+        demo[0].innerHTML = "getSum([1,2,3] => " + getSum([1, 2, 3]);
+        /////////////////////////////////////////////////////////////////
+        function stringConcat(arr) {
+            let result = arr.reduce(function (total, currVal) {
+                return total + currVal.toString();
+            });
+            return result;
+        }
+        demo[1].innerHTML = "stringConcat([1,2,3]) => " + stringConcat([1, 2, 3]);
+        //                          (3)
+        /////////////////////////////////////////////////////////////////
+        const voters = [
+            { name: 'Bob', age: 30, voted: true },
+            { name: 'Jake', age: 32, voted: true },
+            { name: 'Kate', age: 25, voted: false },
+            { name: 'Sam', age: 20, voted: false },
+            { name: 'Phil', age: 21, voted: true },
+            { name: 'Ed', age: 55, voted: true },
+            { name: 'Tami', age: 54, voted: true },
+            { name: 'Mary', age: 31, voted: false },
+            { name: 'Becky', age: 43, voted: false },
+            { name: 'Joey', age: 41, voted: true },
+            { name: 'Jeff', age: 30, voted: true },
+            { name: 'Zack', age: 19, voted: false }
+        ];
+        function totalVotes(arr) {
+            let result = arr.reduce(function (total, currVal) {
+                return currVal.voted === true ? ++total : total;
+            }, 0);
+            return result;
+        }
+
+        demo[2].innerHTML = "totalVotes([voters) => " + totalVotes(voters);
+        //                          (4)
+        /////////////////////////////////////////////////////////////////
+
+        const wishlist = [
+            { title: "Tesla Model S", price: 90000 },
+            { title: "4 carat diamond ring", price: 45000 },
+            { title: "Fancy hacky Sack", price: 5 },
+            { title: "Gold fidgit spinner", price: 2000 },
+            { title: "A second Tesla Model S", price: 90000 }
+        ];
+
+        function shoppingSpree(arr) {
+            let result = arr.reduce(function (total, currVal) {
+                return total + currVal.price;
+            }, 0);
+            return result;
+        }
+
+        demo[3].innerHTML = "shoppingSpree(wishlist) => " + shoppingSpree(wishlist);
+        //                          (5)
+        /////////////////////////////////////////////////////////////////
+        const arrays = [
+            ["1", "2", "3"],
+            [true],
+            [4, 5, 6]
+        ];
+
+        function flatten(arr) {
+            const children = arr[0].concat(arr[1], arr[2]);
+            return children;
+        }
+
+
+        demo[4].innerHTML = "flatten(arrays) => " + flatten(arrays);
+        //                          (6)
+        /////////////////////////////////////////////////////////////////
+        const votersX = [
+            { name: 'Bob', age: 30, voted: true },
+            { name: 'Jake', age: 32, voted: true },
+            { name: 'Kate', age: 25, voted: false },
+            { name: 'Sam', age: 20, voted: false },
+            { name: 'Phil', age: 21, voted: true },
+            { name: 'Ed', age: 55, voted: true },
+            { name: 'Tami', age: 54, voted: true },
+            { name: 'Mary', age: 31, voted: false },
+            { name: 'Becky', age: 43, voted: false },
+            { name: 'Joey', age: 41, voted: true },
+            { name: 'Jeff', age: 30, voted: true },
+            { name: 'Zack', age: 19, voted: false }
+        ];
+
+        function voterResults(arr) {
+        
+        let result = arr.reduce(function(resObj,currVal){
+                if(currVal.age >= 18 && currVal.age <= 25 )
+                {
+                    resObj.numYoungPeople+=1;
+                    if (currVal.voted === true) resObj.numYoungVotes++;
+                }
+                else if (currVal.age >= 26 && currVal.age <= 35 ) {
+                    resObj.numMidsPeople+=1;
+                    if (currVal.voted === true) resObj.numMidVotesPeople++;
+                }
+                else if (currVal.age >= 36 && currVal.age <= 55 ) {
+                    resObj.numOldsPeople+=1;
+                    if (currVal.voted === true) resObj.numOldVotesPeople++;
+                }
+
+                return resObj;
+
+            },
+            {
+                numYoungVotes: 0,
+                numYoungPeople: 0,
+                numMidVotesPeople: 0,
+                numMidsPeople: 0,
+                numOldVotesPeople: 0,
+                numOldsPeople: 0 
+            });
+            return result;
+        }
+
+        demo[4].innerHTML = "voterResults(votersX) => " + JSON.stringify(voterResults(votersX)); // Returned value shown below:
+        /*
+        { 
+        numYoungVotes: 1,
+        numYoungPeople: 4,
+        numMidVotesPeople: 3,
+        numMidsPeople: 4,
+        numOldVotesPeople: 3,
+        numOldsPeople: 4 
+        }
+        */
+
+    </script>
+</body>
+
+</html>

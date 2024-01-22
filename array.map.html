@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS array map() cardio</title>
+    <style>
+        body {
+            background-color: #000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow: 2px 2px 12px #fc3, 1px 1px 6px #fc3;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<p class="demo">Look Into Console</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+
+
+
+<body>
+    <script>
+        const demo = document.querySelectorAll('.demo');
+        //                          (1)
+        /////////////////////////////////////////////////////////////////
+        //1) Make an array of numbers that are doubles of the first array
+
+        function doublesArray(arr) {
+            const newArr  =   arr.map((value,arr) =>{
+               return value * 2;
+            });
+            return newArr;
+        }
+        const myArr = [1,2,3,4,5,6,7];
+        const doubled = myArr.map((val,arr) => val * 2);
+        console.log(doubled);
+        console.log(doublesArray([1,2,3,4,5]));
+        //                          (2)
+        /////////////////////////////////////////////////////////////////
+        //2)Take an array of numbers and make them strings
+        function stringItUp(arr){
+            const newArr = arr.map((val,arr) => val.toString());
+            return newArr;
+        }
+        console.log(stringItUp([2, 5, 100])); // ["2", "5", "100"]
+        //                          (3)
+        /////////////////////////////////////////////////////////////////
+        //3) Capitalize each of an array of names
+        function capitalizeNames(arr){
+            const newArr = arr.map(function (val,arr) 
+            {
+                return val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
+            });
+            return newArr;
+        }
+
+          console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt","aaRon"])); // ["John", "Jacob", "Jingleheimer", "Schmidt"]
+        //                          (4) 
+        /////////////////////////////////////////////////////////////////
+        //4) Make an array of strings of the names
+        function namesOnly(arr){
+            const newArr = []; 
+            arr.map((item,arr) => {
+                newArr.push(item.name)
+            });
+            console.log(newArr);
+        }
+        
+        console.log(namesOnly([
+            {
+                name: "Angelina Jolie",
+                age: 80
+            },
+            {
+                name: "Eric Jones",
+                age: 2
+            },
+            {
+                name: "Paris Hilton",
+                age: 5
+            },
+            {
+                name: "Kayne West",
+                age: 16
+            },
+            {
+                name: "Bob Ziroll",
+                age: 100
+            }
+        ])); 
+        // ["Angelina Jolie", "Eric Jones", "Paris Hilton", "Kayne West", "Bob Ziroll"]
+
+        //                          (5) 
+        /////////////////////////////////////////////////////////////////
+        //5) Make an array of strings of the names saying whether or not they can go to The Matrix
+        function makeStrings(arr){
+            const newArr = arr.map((item,arr)=> {
+                if(item.age > 18)
+                    return item.name;
+                else 
+                    return null;
+            }).filter((item,arr) => item? item:0);
+            return newArr;
+        }
+        
+        console.log(makeStrings([
+            {
+                name: "Angelina Jolie",
+                age: 80
+            },
+            {
+                name: "Eric Jones",
+                age: 2
+            },
+            {
+                name: "Paris Hilton",
+                age: 5
+            },
+            {
+                name: "Kayne West",
+                age: 16
+            },
+            {
+                name: "Bob Ziroll",
+                age: 100
+            }
+        ])); 
+          // ["Angelina Jolie can go to The Matrix", 
+          // "Eric Jones is under age!!", 
+          // "Paris Hilton is under age!!", 
+          // "Kayne West is under age!!", 
+          // "Bob Ziroll can go to The Matrix"]
+        //                          (5) 
+        /////////////////////////////////////////////////////////////////
+        //6) Make an array of the names in h1s, and the ages in h2s
+        function readyToPutInTheDOM(arr) {
+            const newArr = arr.map((item,arr) => {
+                return `<h1>${item.name}</h1><h2>${item.age}</h2>`;
+            });
+            return newArr;
+        }
+        console.log(readyToPutInTheDOM([
+            {
+                name: "Angelina Jolie",
+                age: 80
+            },
+            {
+                name: "Eric Jones",
+                age: 2
+            },
+            {
+                name: "Paris Hilton",
+                age: 5
+            },
+            {
+                name: "Kayne West",
+                age: 16
+            },
+            {
+                name: "Bob Ziroll",
+                age: 100
+            }
+        ])); 
+          // ["<h1>Angelina Jolie</h1><h2>80</h2>", 
+          // "<h1>Eric Jones</h1><h2>2</h2>", 
+          // "<h1>Paris Hilton</h1><h2>5</h2>", 
+          // "<h1>Kayne West</h1><h2>16</h2>", 
+          // "<h1>Bob Ziroll</h1><h2>100</h2>"]
+    </script>
+</body>
+
+</html>

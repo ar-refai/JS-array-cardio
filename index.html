@@ -5,9 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS array cardio</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+          
+          input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          }
+          
+          input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          
+    </style>
 </head>
-<h1 id="demo"></h1>
 
+<h1 id="demo"></h1>
+<form>
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <input type="submit" value="Submit">
+  </form>
 <body>
     <script>
         const inventors = [
@@ -110,7 +148,18 @@
         }, {});
 
         console.log(transportation);
+        ////////////////////////////////////////////
+        data.forEach((value,index,array) => console.log(value));
+        data.some(function (value) {
+            return value === "car";
+        });
 
+
+
+
+
+
+        
 
     </script>
 </body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS array sort() cardio</title>
+    <style>
+        body {
+            background-color: #000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow: 2px 2px 12px #fc3, 1px 1px 6px #fc3;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<p class="demo">Look Into Console</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+<p class="demo">pending..</p>
+
+
+
+<body>
+    <script>
+    const demo = document.querySelectorAll('.demo');
+    //                          (1)
+    /////////////////////////////////////////////////////////////////
+    //1) Sort an array from smallest number to largest
+    function leastToGreatest(arr){
+        return arr.sort((a,b)=> a - b);
+    }
+    console.log(leastToGreatest([1, 3, 5, 2, 90, 20])); // [1, 2, 3, 5, 20, 90] 
+
+    //                          (2)
+    /////////////////////////////////////////////////////////////////
+    //2)Sort an array from largest number to smallest
+    function greatestToLeast(arr) {
+
+        return arr.sort((a,b) => b - a);
+    }
+    
+      console.log(greatestToLeast([1, 3, 5, 2, 90, 20])); // [90, 20, 5, 3, 2, 1] 
+    
+
+    //                          (3)
+    /////////////////////////////////////////////////////////////////
+    //3)  sort an array from shortest string to longest
+    function lengthSort(arr) {
+        
+        return arr.sort((a,b)=> {
+            return a.length - b.length;
+        });
+    }
+    
+    console.log(lengthSort(["dog", "wolf", "by", "family", "eaten"])); // ["by", "dog", "wolf", "eaten", "family"] 
+    
+    //                          (4)
+    /////////////////////////////////////////////////////////////////
+    //4) Sort an array alphabetically
+    function alphabetical(arr) {
+        return arr.sort();
+    }
+    
+      console.log(alphabetical(["dog", "wolf", "by", "family", "eaten"])); // ["by", "dog", "eaten", "family", "wolf"] 
+    
+    
+
+    //                          (5)
+    /////////////////////////////////////////////////////////////////
+    //5) Sort the objects in the array by age
+
+
+    function byAge(arr){
+        return arr.sort((a,b)=> {
+            return a.age - b.age;
+        });
+    }
+    
+    console.log(byAge([
+        { name: "Quiet Samurai", age: 22 },
+        { name: "Arrogant Ambassador", age: 100 },
+        { name: "Misunderstood Observer", age: 2 },
+        { name: "Unlucky Swami", age: 77 }
+    ]));
+      // => [ { name: 'Misunderstood Observer', age: 2 },
+      //  { name: 'Quiet Samurai', age: 22 },
+      //  { name: 'Unlucky Swami', age: 77 },
+      //  { name: 'Arrogant Ambassador', age: 100 } ]
+    </script>
+</body>
+
+</html>
